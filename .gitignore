@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.DS_Store
+
+# Examination resources and exports
+*.pdf
+prd.md
+smartcomplaint_postman_collection.json
