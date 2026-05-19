@@ -45,7 +45,7 @@ export default function ComplaintList() {
     setLoading(true);
     setError('');
     try {
-      let url = 'http://localhost:9000/api/complaints';
+      let url = '/api/complaints';
       if (categoryFilter !== 'All Departments') {
         url += `?category=${encodeURIComponent(categoryFilter)}`;
       }
@@ -71,7 +71,7 @@ export default function ComplaintList() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get(`http://localhost:9000/api/complaints/search?location=${encodeURIComponent(locationSearch)}`, getHeaders());
+      const response = await axios.get(`/api/complaints/search?location=${encodeURIComponent(locationSearch)}`, getHeaders());
       setComplaints(response.data);
     } catch (err) {
       setError('Search failed.');
@@ -82,7 +82,7 @@ export default function ComplaintList() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      await axios.put(`http://localhost:9000/api/complaints/${id}`, { status: newStatus }, getHeaders());
+      await axios.put(`/api/complaints/${id}`, { status: newStatus }, getHeaders());
       setComplaints(prev => prev.map(c => c._id === id ? { ...c, status: newStatus } : c));
     } catch (err) {
       alert('Failed to update status');

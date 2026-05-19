@@ -22,7 +22,7 @@ function SubmitComplaintView() {
     setAnalysisData(null);
     
     try {
-      const response = await axios.post('http://localhost:9000/api/complaints', formData);
+      const response = await axios.post('/api/complaints', formData);
       setSuccessMsg(response.data.message || 'Complaint submitted successfully!');
       
       if (response.data.complaint?.aiAnalysis) {

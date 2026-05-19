@@ -16,7 +16,7 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:9000/api/auth/signup', { name, email, password });
+      const response = await axios.post('/api/auth/signup', { name, email, password });
       localStorage.setItem('user', JSON.stringify(response.data));
       navigate('/list');
     } catch (err) {
